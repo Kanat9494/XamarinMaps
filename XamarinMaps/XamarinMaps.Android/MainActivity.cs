@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using AndroidX.Core.OS;
+using Plugin.CurrentActivity;
 
 namespace XamarinMaps.Droid
 {
@@ -14,6 +16,7 @@ namespace XamarinMaps.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);

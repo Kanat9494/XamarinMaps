@@ -18,11 +18,11 @@ namespace XamarinMaps
             Pin pinTokyo = new Pin()
             {
                 Type = PinType.Place,
-                Label = "Tokyo SKYTREE",
-                Address = "Sumida-ku, Tokyo, Japan",
-                Position = new Position(35.71d, 139.81d),
+                Label = "Дом, милый дом",
+                Address = "Ак-Орго, Бишкек, Кыргызстан",
+                Position = new Position(42.851889, 74.517327),
                 Rotation = 33.3f,
-                Tag = "id_tokyo",
+                Tag = "id_bishkek",
             };
 
             map.Pins.Add(pinTokyo);

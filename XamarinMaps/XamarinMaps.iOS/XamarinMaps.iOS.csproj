@@ -145,4 +145,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\CarPins.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PickupPin.png" />
+  </ItemGroup>
 </Project>

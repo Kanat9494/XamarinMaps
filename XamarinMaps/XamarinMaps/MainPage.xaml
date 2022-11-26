@@ -7,7 +7,11 @@
     <Grid>
         <maps:Map x:Name="map" />
 
-        <Button Text="Load Vehicle Near By" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" Margin="20"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+            <Button Text="Load Vehicle Near By" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" Margin="20"/>
+
+            <Button Text="Update Buses" Clicked="UpdateButton_Clicked" VerticalOptions="EndAndExpand" Margin="20"/>
+        </StackLayout>
     </Grid>
     
 

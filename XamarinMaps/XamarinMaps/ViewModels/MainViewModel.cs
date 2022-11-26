@@ -19,12 +19,10 @@ namespace XamarinMaps.ViewModels
         {
             List<VehicleLocations> vehicleLocations = new List<VehicleLocations>()
              {
-                 new VehicleLocations {Latitude = 42.852901, Longitude = 74.519003},
+                 new VehicleLocations {Latitude = 42.849566, Longitude = 74.514990},
                  new VehicleLocations {Latitude = 42.853027, Longitude = 74.514132}, 
                  new VehicleLocations {Latitude = 42.850762, Longitude = 74.514303},
-                 new VehicleLocations {Latitude = 42.850558, Longitude = 74.519088},
-
-
+                 new VehicleLocations {Latitude = 42.848733, Longitude = 74.517329},
              };
 
             return vehicleLocations;

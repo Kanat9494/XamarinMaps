@@ -4,6 +4,11 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="XamarinMaps.MainPage">
 
-    <maps:Map x:Name="map" />
+    <Grid>
+        <maps:Map x:Name="map" />
+
+        <Button Text="Load Vehicle Near By" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" Margin="20"/>
+    </Grid>
+    
 
 </ContentPage>

@@ -8,28 +8,20 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
+using XamarinMaps.ViewModels;
+using XamarinMaps.ViewModels;
 
 namespace XamarinMaps
 {
     public partial class MainPage : ContentPage
     {
         Position position;
+        MainViewModel mainViewModel;
         public MainPage()
         {
             InitializeComponent();
 
-            Pin pinTokyo = new Pin()
-            {
-                Type = PinType.Place,
-                Label = "Дом, милый дом",
-                Address = "Ак-Орго, Бишкек, Кыргызстан",
-                Position = position,
-                Rotation = 33.3f,
-                Tag = "id_bishkek",
-            };
-
-            //map.Pins.Add(pinTokyo);
-            //map.MoveToRegion(new MapSpan(position, 2, 2)); 
+            BindingContext = mainViewModel = new MainViewModel();
         }
 
         async void GetLocation()
@@ -39,11 +31,35 @@ namespace XamarinMaps
                 var request = new GeolocationRequest(GeolocationAccuracy.High);
                 var location = await Geolocation.GetLocationAsync(request);
 
-                //var centerMap = new Xamarin.Forms.GoogleMaps.Position(location.La)
                 position = new Position(location.Latitude, location.Longitude);
             }
             catch (Exception ex) { }
             
+        }
+
+        async void Button_Clicked(object sender, EventArgs e)
+        {
+            var contents = await mainViewModel.LoadVehicles();
+
+            if (contents != null)
+            {
+                foreach (var item in contents)
+                {
+                    Pin VehiclePins = new Pin()
+                    {
+                        Label = "Buses",
+                        Type = PinType.Place,
+                        Icon = (Device.RuntimePlatform == Device.Android) ? BitmapDescriptorFactory.FromBundle("CarPins.png") : BitmapDescriptorFactory.FromView(new Image() { Source = "CarPins.png", WidthRequest = 30, HeightRequest = 30 }),
+                        Position = new Position(item.Latitude, item.Longitude),
+                    };
+
+                    map.Pins.Add(VehiclePins);
+                }
+            }
+
+            var position = new Position(42.851863, 74.517350);
+
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(500 )));
         }
     }
 }

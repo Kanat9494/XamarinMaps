@@ -139,4 +139,10 @@
       <Name>XamarinMaps</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\._CarPins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CarPins.png" />
+  </ItemGroup>
 </Project>
